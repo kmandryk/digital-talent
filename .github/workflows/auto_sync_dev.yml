@@ -1,0 +1,30 @@
+name: Auto Sync Develop
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - stage
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  merge:
+    name: Merge to Develop
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      # Other steps that change files in the repository
+
+      # Commit all changed files back to the repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Sync Develop with Stage
+          branch: develop
