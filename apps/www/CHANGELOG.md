@@ -1,5 +1,11 @@
 # @bcgov-dt/www
 
+## 1.0.5
+
+### Patch Changes
+
+- [#118](https://github.com/bcgov/digital-talent/pull/118) [`057cc32`](https://github.com/bcgov/digital-talent/commit/057cc3222906ff7b708b2507b5984ca14fdac144) Thanks [@sidmclaughlin](https://github.com/sidmclaughlin)! - Add page tracking to analytics
+
 ## 1.0.4
 
 ### Patch Changes
