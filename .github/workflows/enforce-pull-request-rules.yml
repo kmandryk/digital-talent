@@ -8,17 +8,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Check Pull Requests Against `main`
-        if: ${{ github.base_ref == 'main' && !contains(fromJson('["changeset-release/stage"]'), github.head_ref) }}
+        if: ${{ github.base_ref == 'main' && !contains(fromJson('["stage"]'), github.head_ref) }}
         run: |
-          echo "Error: You can only merge to `main` from `changeset-release/stage`."
+          echo "Error: You can only merge to `main` from `stage`."
           exit 1
       - name: Check Pull Requests Against `stage`
         if: ${{ github.base_ref == 'stage' && !contains(fromJson('["develop","fix/*"]'), github.head_ref) }}
         run: |
-          echo "Error: You can only merge to `main` from `changeset-release/stage`."
-          exit 1
-      - name: Check Pull Requests Against `changeset-release/stage`
-        if: ${{ github.base_ref == 'changeset-release/stage' && !contains(fromJson('["stage"]'), github.head_ref) }}
-        run: |
-          echo "Error: You can only merge to `changeset-release/stage` from `stage`."
+          echo "Error: You can only merge to `stage` from `develop or a fix branch`."
           exit 1
