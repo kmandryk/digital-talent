@@ -12,7 +12,8 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   merge:
     name: Merge to Develop
-    if: github.event.pull_request.merged == true
+    # The job runs only if the pull request is merged and it's from 'changesets-release/stage' branch
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'changesets-release/stage'
     runs-on: ubuntu-latest
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
@@ -20,9 +21,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-
-      # Other steps that change files in the repository
-
+        with:
+          ref: stage
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
