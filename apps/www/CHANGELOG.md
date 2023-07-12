@@ -1,5 +1,11 @@
 # @bcgov-dt/www
 
+## 1.1.1
+
+### Patch Changes
+
+- [`54d8dd6`](https://github.com/bcgov/digital-talent/commit/54d8dd6b62b16648ead5a0b857635706a212ef80) Thanks [@kmandryk](https://github.com/kmandryk)! - dfg
+
 ## 1.1.0
 
 ### Minor Changes
