@@ -1,5 +1,21 @@
 # @bcgov-dt/www
 
+## 1.1.1
+
+### Patch Changes
+
+- [`54d8dd6`](https://github.com/bcgov/digital-talent/commit/54d8dd6b62b16648ead5a0b857635706a212ef80) Thanks [@kmandryk](https://github.com/kmandryk)! - dfg
+
+## 1.1.0
+
+### Minor Changes
+
+- [`a13f3e3`](https://github.com/bcgov/digital-talent/commit/a13f3e303759b561cb68a8f30894f70d57910b83) Thanks [@kmandryk](https://github.com/kmandryk)! - test
+
+### Patch Changes
+
+- [#118](https://github.com/bcgov/digital-talent/pull/118) [`057cc32`](https://github.com/bcgov/digital-talent/commit/057cc3222906ff7b708b2507b5984ca14fdac144) Thanks [@sidmclaughlin](https://github.com/sidmclaughlin)! - Add page tracking to analytics
+
 ## 1.0.4
 
 ### Patch Changes
