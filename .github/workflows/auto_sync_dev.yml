@@ -26,10 +26,6 @@ jobs:
       - name: Pull Latest Changes
         run: |
           git pull origin stage
-          git branch -a
-          git log remotes/origin/develop..remotes/origin/stage
-      # Commit all changed files back to the repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Sync Develop with Stage
-          branch: develop
+          git merge origin/stage --no-commit --no-ff
+          git commit -m "Merging changes from stage"
+          git push origin develop
