@@ -1,5 +1,11 @@
 # @bcgov-dt/www
 
+## 1.1.2
+
+### Patch Changes
+
+- [`f788fb1`](https://github.com/bcgov/digital-talent/commit/f788fb1284a2ffc255c930dc6f0bf86c83ad09a4) Thanks [@kmandryk](https://github.com/kmandryk)! - dssadada
+
 ## 1.1.1
 
 ### Patch Changes
