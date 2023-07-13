@@ -1,9 +1,7 @@
 name: Auto Sync Develop
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - stage
 
@@ -13,7 +11,6 @@ jobs:
   merge:
     name: Merge to Develop
     # The job runs only if the pull request is merged and it's from 'changesets-release/stage' branch
-    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'changesets-release/stage'
     runs-on: ubuntu-latest
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
@@ -21,10 +18,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - name: Merge staging -> develop
+        uses: devmasx/merge-branch@master
         with:
-          ref: stage
-      # Commit all changed files back to the repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Sync Develop with Stage
-          branch: develop
+          type: now
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}
