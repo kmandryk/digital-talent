@@ -1,9 +1,7 @@
 name: Auto Sync Develop
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - stage
 
@@ -21,12 +19,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - name: Merge staging -> develop
+        uses: devmasx/merge-branch@master
         with:
-          ref: develop
-      - name: Pull Latest Changes
-        run: |
-          git config user.name "Your GitHub Bot Name"
-          git config user.email "your_bot_email@example.com"
-          git merge origin/stage --no-commit --no-ff
-          git commit -m "Merging changes from stage"
-          git push origin develop
+          type: now
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}
