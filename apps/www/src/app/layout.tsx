@@ -14,7 +14,7 @@ const notoSerif = Noto_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: wrapTitle('Digital Talent'),
+  title: wrapTitle('Digital Talented'),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
