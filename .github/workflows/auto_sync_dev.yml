@@ -10,7 +10,8 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   merge:
     name: Merge to Develop
-    # The job runs only if the pull request is merged and it's from 'changesets-release/stage' branch
+    # The job runs only if we're not merging from develop branch.
+    if: ${{ !contains(fromJson('["develop"]'), github.head_ref)}}
     runs-on: ubuntu-latest
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
