@@ -11,7 +11,6 @@ jobs:
   merge:
     name: Merge to Develop
     # The job runs only if we're not merging from develop branch.
-    if: ${{ !contains(fromJson('["develop"]'), github.head_ref)}}
     runs-on: ubuntu-latest
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
@@ -19,7 +18,13 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - name: Check if push is from develop branch
+        id: check
+        run: |
+          git fetch origin develop:develop
+          echo "FROM_DEVELOP=$(git merge-base --is-ancestor ${{ github.event.before }} develop && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
       - name: Merge staging -> develop
+        if: ${{ steps.check.outputs.FROM_DEVELOP == 'false' }}
         uses: devmasx/merge-branch@master
         with:
           type: now
