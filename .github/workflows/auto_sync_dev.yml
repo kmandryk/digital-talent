@@ -25,7 +25,8 @@ jobs:
           ref: develop
       - name: Pull Latest Changes
         run: |
-          git pull origin stage
+          git config user.name "Your GitHub Bot Name"
+          git config user.email "your_bot_email@example.com"
           git merge origin/stage --no-commit --no-ff
           git commit -m "Merging changes from stage"
           git push origin develop
