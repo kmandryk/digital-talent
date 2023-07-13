@@ -22,7 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: stage
+          ref: develop
+      - name: Pull Latest Changes
+        run: |
+          git pull origin stage
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
