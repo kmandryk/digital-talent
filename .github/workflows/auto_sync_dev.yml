@@ -26,6 +26,8 @@ jobs:
       - name: Pull Latest Changes
         run: |
           git pull origin stage
+
+          git log develop..stage
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
