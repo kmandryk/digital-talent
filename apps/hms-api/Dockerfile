@@ -1,23 +1,27 @@
 # Use the official Node.js 18 image.
 FROM node:18.17.0
 
+FROM base AS builder
+WORKDIR /tmp/build
+COPY package*.json ./
+COPY apps/www/package.json ./apps/hms-api/
+RUN npm ci
 # Create and change to the app directory.
-WORKDIR /usr/src/app
+WORKDIR /tmp/build
 
 # Copy application dependency manifests to the container image.
 COPY package*.json ./
-
-# Install dependencies.
-RUN npm install
-
+COPY apps/www/package.json ./apps/hms-api/
+RUN npm ci
+COPY tsconfig.json ./
 # Copy local code to the container image.
-COPY . .
+COPY apps/hms-api ./apps/hms-api
 
 # generates the prisma client
-RUN npx prisma generate
+RUN npx -w @bcgov-dt/hms-api prisma generate
 
 #generates the dist folder for nest to run
-RUN npm run build
+RUN npm -w @bcgov-dt/hms-api run build
 
 # openshift runs as a different user than what docker builds with
 # this fixes the issue as related to the npm cache

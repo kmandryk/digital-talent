@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsUrl } from 'class-validator';
+import { IsEnum, IsNotEmpty } from 'class-validator';
 import { Environment } from '../enums/environment.enum';
 
 export class AppConfigDto {
@@ -14,6 +14,6 @@ export class AppConfigDto {
   EVENT_STORE_URL: string;
 
   @IsNotEmpty()
-  @IsUrl()
+  // @IsUrl()
   KEYCLOAK_REALM_URL: string;
 }
