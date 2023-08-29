@@ -38,10 +38,10 @@ RUN chgrp -R 0 /.npm && chmod -R g=u /.npm
 #     echo "npm run start:prod" >> start.sh
 
 # Set execute permissions for the start.sh script.
-RUN chmod +x ./start.sh
+RUN chmod +x ./apps/hms-api/start.sh
 
 # Expose port 4000
 EXPOSE 4000
 
 # Start the application
-CMD ["./start.sh"]
+CMD ["./apps/hms-api/start.sh"]
