@@ -26,6 +26,8 @@ jobs:
               - 'apps/www/**'
             hms-api:
               - 'apps/hms-api/**'
+            hms-app:
+              - 'apps/hms-app/**'
       - name: Get Short SHA
         id: get-short-sha
         run: echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
