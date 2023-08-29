@@ -22,7 +22,7 @@ RUN chgrp -R 0 /.npm && chmod -R g=u /.npm
 FROM base AS runner
 # COPY --from=build /usr/src/app/dist /etc/nginx/html/app
 COPY --from=builder /tmp/build/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY /apps/hms-api/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN set -x \
     && sed -i -e 's/^\(nginx:[^:]\):[0-9]*:[0-9]*:/\1:1001:0:/' /etc/passwd \
