@@ -6,10 +6,10 @@ WORKDIR /tmp/build
 
 # Copy application dependency manifests to the container image.
 COPY package*.json ./
-COPY apps/hms-api/package.json ./apps/hms-api/
+COPY apps/hms-app/package.json ./apps/hms-app/
 RUN npm ci
 #generates the dist folder for nest to run
-RUN npm -w @bcgov-dt/hms-api run build
+RUN npm -w @bcgov-dt/hms-app run build
 # openshift runs as a different user than what docker builds with
 
 # this fixes the issue as related to the npm cache
@@ -22,7 +22,7 @@ RUN chgrp -R 0 /.npm && chmod -R g=u /.npm
 FROM base AS runner
 # COPY --from=build /usr/src/app/dist /etc/nginx/html/app
 COPY --from=builder /tmp/build/dist /usr/share/nginx/html
-COPY /apps/hms-api/nginx.conf /etc/nginx/conf.d/default.conf
+COPY /apps/hms-app/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN set -x \
     && sed -i -e 's/^\(nginx:[^:]\):[0-9]*:[0-9]*:/\1:1001:0:/' /etc/passwd \
