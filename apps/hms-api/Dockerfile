@@ -1,5 +1,5 @@
 # Use the official Node.js 18 image.
-FROM node:18.17.0
+FROM node:18.17.0 AS base
 
 FROM base AS builder
 WORKDIR /tmp/build
