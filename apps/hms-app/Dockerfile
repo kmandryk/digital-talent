@@ -1,5 +1,5 @@
 # Use the official Node.js 18 image.
-FROM nginx:alpine as base
+FROM node:18-alpine AS base
 # Create and change to the app directory.
 FROM base AS builder
 WORKDIR /tmp/build
@@ -19,7 +19,7 @@ RUN chgrp -R 0 /.npm && chmod -R g=u /.npm
 # Copy local code to the container image.
 
 # Serve the app with Nginx
-FROM base AS runner
+FROM nginx:alpine AS runner
 # COPY --from=build /usr/src/app/dist /etc/nginx/html/app
 COPY --from=builder /tmp/build/dist /usr/share/nginx/html
 COPY /apps/hms-app/nginx.conf /etc/nginx/conf.d/default.conf
