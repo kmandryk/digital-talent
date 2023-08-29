@@ -4,14 +4,14 @@ FROM node:18-alpine AS base
 FROM base AS builder
 WORKDIR /tmp/build
 COPY package*.json ./
-COPY apps/www/package.json ./apps/hms-api/
+COPY apps/hms-api/package.json ./apps/hms-api/
 RUN npm ci
 # Create and change to the app directory.
 WORKDIR /tmp/build
 
 # Copy application dependency manifests to the container image.
 COPY package*.json ./
-COPY apps/www/package.json ./apps/hms-api/
+COPY apps/hms-api/package.json ./apps/hms-api/
 RUN npm ci
 COPY tsconfig.json ./
 # Copy local code to the container image.

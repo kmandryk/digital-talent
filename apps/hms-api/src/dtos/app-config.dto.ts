@@ -14,6 +14,6 @@ export class AppConfigDto {
   EVENT_STORE_URL: string;
 
   @IsNotEmpty()
-  // @IsUrl()
+  @IsUrl()
   KEYCLOAK_REALM_URL: string;
 }
