@@ -26,7 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           theme={{
             components: {
               Layout: {
-                colorBgHeader: '#FFF',
+                colorBgHeader: '#FFA',
               },
             },
           }}
