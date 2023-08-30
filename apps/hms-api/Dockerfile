@@ -27,6 +27,7 @@ RUN npm -w @bcgov-dt/hms-api run build
 # this fixes the issue as related to the npm cache
 FROM base AS runner
 COPY --from=builder /tmp/build/apps/hms-api/dist ./apps/hms-api/dist
+COPY /apps/hms-api/start.sh /apps/hms-api/start.sh
 
 RUN mkdir /.npm
 RUN chgrp -R 0 /.npm && chmod -R g=u /.npm
