@@ -23,7 +23,7 @@ RUN chgrp -R 0 /.npm && chmod -R g=u /.npm
 # Serve the app with Nginx
 FROM nginx:alpine AS runner
 # COPY --from=build /usr/src/app/dist /etc/nginx/html/app
-COPY --from=builder /tmp/build/dist/apps/hms-app/ /usr/share/nginx/html
+COPY --from=builder /tmp/build/apps/hms-app/dist /usr/share/nginx/html
 COPY /apps/hms-app/nginx.conf /etc/nginx/conf.d/default.conf
 
 RUN set -x \
