@@ -9,6 +9,7 @@ COPY package*.json ./
 COPY apps/hms-app/package.json ./apps/hms-app/
 RUN npm ci
 COPY tsconfig.json ./
+COPY apps/hms-app ./apps/hms-app
 #generates the dist folder for nest to run
 RUN npm -w @bcgov-dt/hms-app run build
 # openshift runs as a different user than what docker builds with
