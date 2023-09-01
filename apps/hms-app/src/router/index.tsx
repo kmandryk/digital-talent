@@ -47,10 +47,10 @@ export const router = createBrowserRouter(
             },
             {
               path: '/competitions',
-              element: <CompetitionRoute >,
+              element: <CompetitionRoute />,
               handle: {
                 breadcrumb: () => 'Competitions',
-                icon: <AppstoreOutlined >,
+                icon: <AppstoreOutlined />,
               },
               children: [
                 {
