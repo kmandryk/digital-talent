@@ -9,7 +9,7 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "strict": true,
-    "removeComments": true,
+    "removeComments": false,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true
   }

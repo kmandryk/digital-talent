@@ -1,18 +1,16 @@
 # @bcgov-dt/www
 
-## 1.1.1
+## 1.0.6
 
 ### Patch Changes
 
-- [`54d8dd6`](https://github.com/bcgov/digital-talent/commit/54d8dd6b62b16648ead5a0b857635706a212ef80) Thanks [@kmandryk](https://github.com/kmandryk)! - dfg
+- [#126](https://github.com/bcgov/digital-talent/pull/126) [`979f5b6`](https://github.com/bcgov/digital-talent/commit/979f5b636edf2f47c3f6424ad7138fb057482fba) Thanks [@sidmclaughlin](https://github.com/sidmclaughlin)! - Update competition end date
 
-## 1.1.0
-
-### Minor Changes
-
-- [`a13f3e3`](https://github.com/bcgov/digital-talent/commit/a13f3e303759b561cb68a8f30894f70d57910b83) Thanks [@kmandryk](https://github.com/kmandryk)! - test
+## 1.0.5
 
 ### Patch Changes
+
+- [#121](https://github.com/bcgov/digital-talent/pull/121) [`b5906ce`](https://github.com/bcgov/digital-talent/commit/b5906ce5f0b06128fdb819698a8a2bb96157f053) Thanks [@sidmclaughlin](https://github.com/sidmclaughlin)! - Removed statement about using a button which no longer exists.
 
 - [#118](https://github.com/bcgov/digital-talent/pull/118) [`057cc32`](https://github.com/bcgov/digital-talent/commit/057cc3222906ff7b708b2507b5984ca14fdac144) Thanks [@sidmclaughlin](https://github.com/sidmclaughlin)! - Add page tracking to analytics
 
